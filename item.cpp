@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <cctype>
 #include "item.h"
 
 using namespace std;
@@ -8,7 +9,7 @@ Item::Item() {}
 
 Item::Item(char* newDescription)
 {
-  strcpy(description, newdescription);
+  strcpy(description, newDescription);
 }
 
 char* Item::getDescription()

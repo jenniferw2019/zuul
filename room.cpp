@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstring>
+#include <cctype>
+#include <map>
 #include "room.h"
+#include "item.h"
 
 using namespace std;
 
@@ -14,7 +17,7 @@ Room:: Room(char* newRoomDetail, char* newRoomName)
 
 char* Room::getRoomDescription()
 {
-  return roomDescription;
+  return roomDetail;
 }
 
 char* Room::getRoomName()
@@ -27,7 +30,7 @@ void Room::setExits(map<char, char*> newExit)
   exits = newExit;
 }
 
-map<char, char*> Room::getExit()
+map<char, char*> Room::getExits()
 {
   return exits;
 }

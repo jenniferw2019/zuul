@@ -1,7 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <iostream>
-#include <ctring>
+#include <cstring>
 #include <map>
 #include <vector>
 #include "item.h"
