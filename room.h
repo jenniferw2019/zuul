@@ -18,6 +18,8 @@ class Room : public Item
   char* getRoomName();
   void setExits(map<char, char*> newExit);
   map<char, char*> getExits();
+  void displayRoomInfo();
+  void displayExits();
   
   ~Room();
 

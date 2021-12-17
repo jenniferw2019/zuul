@@ -133,7 +133,7 @@ int main()
   rmoffice = new Room(inputDescription, office);
   map<char, char*> mpoffice;
   mpoffice.insert(pair<char, char*>('w', lab));
-  rmoffice->setExits(mplab);
+  rmoffice->setExits(mpoffice);
   vecRoomList.push_back(rmoffice);
 
   Room* rmcafe;
@@ -170,18 +170,145 @@ int main()
   mpart.insert(pair<char, char*>('w', twohall));
   rmart->setExits(mpart);
   vecRoomList.push_back(rmart);
-  
+
   Room* currentRoom;
   map<char, char*> currentMap;
-  currentRoom = rmonehall;
+  currentRoom = rmtwohall;
+  currentRoom->displayRoomInfo();
+  currentRoom->displayExits();
   currentMap = currentRoom->getExits();
 
+  bool stillPlay = true;
+  char input[25];
+  char goExit[10];
+  char strtemp[40];
+  while (stillPlay == true)
+    {
+
+      //cout << "You are here: " << currentRoom->getRoomName() << endl;
+      //cout << currentRoom->getRoomDescription() << endl;
+      
+      cout << "Enter a command. Type HELP for assistance"  << endl;
+      cin.get(input, 25);
+      cin.get();
+
+      if(strcmp(input, "HELP") == 0)
+	{
+	  cout << "Here is a list of commands to travel between rooms: EAST, NORTH, SOUTH, WEST" << endl;
+	  cout << "Type QUIT to quit the game" << endl;
+	  cout << "Type PICK to pick up an item" << endl;
+	  cout << "Type DROP to drop an item" << endl;
+	  cout << "Type INVENTORY to check inventory and see what items you have" << endl;
+	}
+
+      if(strcmp(input, "WEST") == 0)
+	{
+	  strcpy(strtemp,currentMap.find('w')->second);
+	  
+	  for(vector<Room*>::iterator it = vecRoomList.begin(); it!= vecRoomList.end(); it++)
+	    {
+	      if(strcmp((*it)->getRoomName(), strtemp) == 0)
+		{
+		  currentRoom = (*it);
+		  currentRoom->displayRoomInfo();
+		  currentRoom->displayExits();
+		  break;
+		}
+	    }
+
+	  currentMap = currentRoom->getExits();
+	}
+
+      if(strcmp(input, "EAST") == 0)
+	{
+	  strcpy(strtemp,currentMap.find('e')->second);
+	  
+	  for(vector<Room*>::iterator it = vecRoomList.begin(); it!= vecRoomList.end(); it++)
+	    {
+	      if(strcmp((*it)->getRoomName(), strtemp) == 0)
+		{
+		  currentRoom = (*it);
+		  currentRoom->displayRoomInfo();
+		  currentRoom->displayExits();
+		  break;
+		}
+	    }
+
+	  currentMap = currentRoom->getExits();
+	}
+
+      if(strcmp(input, "NORTH") == 0)
+	{
+	  strcpy(strtemp,currentMap.find('n')->second);
+	  
+	  for(vector<Room*>::iterator it = vecRoomList.begin(); it!= vecRoomList.end(); it++)
+	    {
+	      if(strcmp((*it)->getRoomName(), strtemp) == 0)
+		{
+		  currentRoom = (*it);
+		  currentRoom->displayRoomInfo();
+		  currentRoom->displayExits();
+		  break;
+		}
+	    }
+
+	  currentMap = currentRoom->getExits();
+	}
+      
+      if(strcmp(input, "SOUTH") == 0)
+	{
+	  strcpy(strtemp,currentMap.find('s')->second);
+	  
+	  for(vector<Room*>::iterator it = vecRoomList.begin(); it!= vecRoomList.end(); it++)
+	    {
+	      if(strcmp((*it)->getRoomName(), strtemp) == 0)
+		{
+		  currentRoom = (*it);
+		  currentRoom->displayRoomInfo();
+		  currentRoom->displayExits();
+		  break;
+		}
+	    }
+
+	  currentMap = currentRoom->getExits();
+	}
+
+      if(strcmp(input, "QUIT") == 0)
+	{
+	  stillPlay = false;
+	}
+
+
+      
+
+      /*
+      if (strcmp(input, "go") == 0)
+	{
+	  cout << "which exist do you want to go through?" << endl;
+	  cout << "type 'n' for north, 'e' for east, 's' for south, and 'w' for west" << endl;
+	  cin.get(goExit, 10);
+	  cin.get();
+
+	  if (strcmp(getExit, "n") == 0)
+	    {
+	      strcpy(strtemp, currentMap.find('n')->second);
+	    }
+	
+	}
+      */
+    }
+
+
+
+  
+  /*
   cout << currentRoom->getRoomName() << endl;
   cout << currentRoom->getRoomDescription() << endl;
 
   char strtemp[40];
   strcpy(strtemp,currentMap.find('s')->second);
   cout << strtemp << endl;
+
 
   for(vector<Room*>::iterator it = vecRoomList.begin(); it!= vecRoomList.end(); it++)
     {
@@ -197,7 +324,8 @@ int main()
   cout << currentRoom->getRoomDescription() << endl;
   strcpy(strtemp,currentMap.find('w')->second);
   cout << strtemp << endl;
-  
+  */  
+
   /*
   vector<Item*> vecItemList;
   
