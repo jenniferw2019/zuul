@@ -15,7 +15,7 @@ Room:: Room(char* newRoomDetail, char* newRoomName)
   strcpy(roomName, newRoomName);
 }
 
-char* Room::getRoomDescription()
+char* Room::getRoomDetail()
 {
   return roomDetail;
 }
@@ -25,14 +25,24 @@ char* Room::getRoomName()
   return roomName;
 }
 
-void Room::setExits(map<char, char*> newExit)
+vector<Item*> Room::getItems()
 {
-  exits = newExit;
+  return items;
 }
 
 map<char, char*> Room::getExits()
 {
   return exits;
+}
+
+void Room::setExits(map<char, char*> newExit)
+{
+  exits = newExit;
+}
+
+void Room:: setItems(vector<Item*> newItems)
+{
+  items = newItems;
 }
 
 void Room::displayRoomInfo()
@@ -48,20 +58,30 @@ void Room::displayExits()
        char temp = it->first;
        if (temp == 'n')
 	 {
-	   cout << "NORTH" << endl;
+	   cout << "NORTH" << " ";
 	 }
        if (temp == 'e')
 	 {
-	   cout << "EAST" << endl;
+	   cout << "EAST" << " ";
 	 }
        if (temp == 's')
 	 {
-	   cout << "SOUTH" << endl;
+	   cout << "SOUTH" << " ";
 	 }
        if (temp == 'w')
 	 {
-	   cout << "WEST" << endl;
+	   cout << "WEST" << " ";
 	 }
+    }
+  cout << endl;
+}
+
+void Room::displayItems()
+{
+  cout << "Items in this room: " << endl;
+  for (vector<Item*>:: iterator it = items.begin(); it != items.end(); it++)
+    {
+      cout << (*it)->getItemName() << endl;
     }
 }
 

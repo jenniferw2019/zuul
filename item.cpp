@@ -7,14 +7,14 @@ using namespace std;
 
 Item::Item() {}
 
-Item::Item(char* newDescription)
+Item::Item(char* newItemName)
 {
-  strcpy(description, newDescription);
+  strcpy(itemName, newItemName);
 }
 
-char* Item::getDescription()
+char* Item::getItemName()
 {
-  return description;
+  return itemName;
 }
 
 

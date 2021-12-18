@@ -9,12 +9,12 @@ class Item
 {
  public:
   Item();
-  Item(char* newDescription);
-  char* getDescription();
+  Item(char* newItemName);
+  char* getItemName();
   ~Item();
   
  private:
-  char description[40];
+  char itemName[40];
 
 };
 

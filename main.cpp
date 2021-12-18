@@ -28,6 +28,12 @@ int main()
   char twohall[] = "twohall";
   char art[] = "art";
 
+  char broom[] = "broom";
+  char basketball[] = "basketball";
+  char apple[] = "apple";
+  char book[] = "book";
+  char robot[] = "robot";
+
   vector<Room*> vecRoomList;
 
   char inputDescription[150];
@@ -126,7 +132,12 @@ int main()
   mplab.insert(pair<char, char*>('e', office));
   mplab.insert(pair<char, char*>('s', twohall));
   rmlab->setExits(mplab);
+  Item* ibroom = new Item(broom);
+  vector<Item*> itemlab;
+  itemlab.push_back(ibroom);
+  rmlab->setItems(itemlab);
   vecRoomList.push_back(rmlab);
+  
 
   Room* rmoffice;
   strcpy(inputDescription, "in office");
@@ -173,10 +184,23 @@ int main()
 
   Room* currentRoom;
   map<char, char*> currentMap;
-  currentRoom = rmtwohall;
+  currentRoom = rmlab;
   currentRoom->displayRoomInfo();
   currentRoom->displayExits();
   currentMap = currentRoom->getExits();
+
+  
+  vector<Item*> currentItem;
+  currentItem = currentRoom->getItems();
+  /*
+  for(vector<Item*>::iterator it = currentItem.begin(); it!= currentItem.end(); it++)
+    {
+      cout << (*it)->getItemName() << endl;
+    }
+  */
+  currentRoom->displayItems();
+  
+
 
   bool stillPlay = true;
   char input[25];

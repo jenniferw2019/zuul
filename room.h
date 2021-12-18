@@ -14,12 +14,15 @@ class Room : public Item
  public:
   Room();
   Room(char* newRoomDetail, char* newRoomName);
-  char* getRoomDescription();
+  char* getRoomDetail();
   char* getRoomName();
-  void setExits(map<char, char*> newExit);
+  vector<Item*> getItems();
   map<char, char*> getExits();
+  void setExits(map<char, char*> newExit);
+  void setItems(vector<Item*> newItems);
   void displayRoomInfo();
   void displayExits();
+  void displayItems();
   
   ~Room();
 
