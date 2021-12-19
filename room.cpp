@@ -1,3 +1,4 @@
+//cpp file for room
 #include <iostream>
 #include <cstring>
 #include <cctype>
@@ -45,11 +46,12 @@ void Room:: setItems(vector<Item*> newItems)
   items = newItems;
 }
 
+//tells user what room they are in
 void Room::displayRoomInfo()
 {
   cout << "You are here: " << roomName << ", " << roomDetail << endl;
 }
-
+//displays all exits a room has
 void Room::displayExits()
 {
   cout << "There are exits: " << endl;
@@ -76,13 +78,23 @@ void Room::displayExits()
   cout << endl;
 }
 
+//displays what items are in a room
 void Room::displayItems()
 {
   cout << "Items in this room: " << endl;
   for (vector<Item*>:: iterator it = items.begin(); it != items.end(); it++)
     {
-      cout << (*it)->getItemName() << endl;
+      cout << (*it)->getItemName() << " ";
     }
+  cout << endl;
+}
+
+int Room::countItems()
+{
+  int count = 0;
+  count = items.size();
+
+  return count;
 }
 
 Room::~Room() {}

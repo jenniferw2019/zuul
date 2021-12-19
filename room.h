@@ -1,3 +1,4 @@
+//header file for room
 #ifndef ROOM_H
 #define ROOM_H
 #include <iostream>
@@ -12,6 +13,7 @@ class Room : public Item
 {
 
  public:
+  //define functions
   Room();
   Room(char* newRoomDetail, char* newRoomName);
   char* getRoomDetail();
@@ -23,10 +25,12 @@ class Room : public Item
   void displayRoomInfo();
   void displayExits();
   void displayItems();
+  int countItems();
   
   ~Room();
 
  private:
+  //variables
   char roomDetail[150];
   char roomName[40];
   map<char, char*> exits;
